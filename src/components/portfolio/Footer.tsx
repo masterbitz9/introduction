@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { SiDiscord } from "react-icons/si";
 import logo from "/logo.png";
 
@@ -24,8 +24,6 @@ export default function Footer() {
 
         <div className="flex items-center gap-2">
           {[
-            { href: "https://github.com", icon: Github, label: "GitHub" },
-            { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn" },
             { href: "https://discord.com/users/1368761687930568724", icon: SiDiscord, label: "Discord" },
             { href: "mailto:mdsahab3124@gmail.com", icon: Mail, label: "Email" },
           ].map(({ href, icon: Icon, label }) => (
