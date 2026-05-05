@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import logo from "/logo.png";
 
 const navLinks = [
+  { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
@@ -12,7 +13,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -118,16 +119,23 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-border/50 px-4 py-4 flex flex-col gap-1"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollTo(e, link.href)}
-              className="px-4 py-3 text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => scrollTo(e, link.href)}
+                className={`px-4 py-3 text-sm font-medium rounded-lg transition-all ${
+                  isActive
+                    ? "text-primary bg-primary/10 border border-primary/25"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </motion.div>
       )}
     </motion.nav>
