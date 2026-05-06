@@ -31,7 +31,7 @@ Single-page personal portfolio: hero, about, skills, experience, projects, educa
 - `src/App.tsx` — router shell, dark mode class on `<html>`
 - `src/pages/` — `Home`, `not-found`
 - `src/components/portfolio/` — page sections and layout
-- `public/` — static assets (`logo.png`, `favicon.svg`, etc.)
+- `public/` — static assets (`logo.png` for the site, `favicon.png` is a 32×32 scaled copy for the tab icon, etc.)
 
 ## Deployment
 
